@@ -179,33 +179,9 @@ class CardDeck {
 const deck = new CardDeck(".deck", ".hand");
 let url = window.location.href;
 
-//cards
-const cards = (cards, urlParameter) => {
-  if (url.includes(`index.html?cards=${urlParameter}`)) {
+const chooseCard = (cards, suits, ranks, limit, urlParameter) => {
+  if (url.includes(`index.html?suits=${urlParameter}`)) {
     deck.filter("id", [cards]);
-    deck.drawFiltered();
-  }
-};
-
-//suits
-const suits = (suits, urlParameter) => {
-  if (url.includes(`index.html?suits=${urlParameter}`)) {
-    deck.filter("id", [suits]);
-    deck.drawFiltered();
-  }
-};
-
-//ranks
-const ranks = (ranks, urlParameter) => {
-  if (url.includes(`index.html?ranks=${urlParameter}`)) {
-    deck.filter("id", [ranks]);
-    deck.drawFiltered();
-  }
-};
-
-//limit
-const limit = (suits, ranks, limit, urlParameter) => {
-  if (url.includes(`index.html?suits=${urlParameter}`)) {
     deck.filter("suit", [suits]);
     deck.filter("rank", [ranks]);
     deck.limit(limit);
