@@ -180,7 +180,7 @@ const deck = new CardDeck(".deck", ".hand");
 let url = window.location.href;
 
 const chooseCard = (cards, suits, ranks, limit, urlParameter) => {
-  if (url.includes(`index.html?suits=${urlParameter}`)) {
+  if (url.includes(`index.html?${urlParameter}`)) {
     deck.filter("id", [cards]);
     deck.filter("suit", [suits]);
     deck.filter("rank", [ranks]);
