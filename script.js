@@ -173,9 +173,54 @@ class CardDeck {
 //
 //  Your code goes below this comment.
 /*------------------------------------------*/
-
 // Create a new card deck.
 const deck = new CardDeck(".deck", ".hand");
+let url= window.location.href;
+
+//cards
+ if(url.includes('index.html?cards=s-3+c-9+h-A')){
+	deck.filter('id',['s-3', 'c-9', 'h-A']);
+	deck.drawFiltered()
+}
+
+else if(url.includes('index.html?cards=s-3')){
+	deck.filter('id',['s-3']);
+	deck.drawFiltered()
+}
+
+//suits
+else if(url.includes('index.html?suits=spades+hearts')){
+	deck.filter('suit',['spades', 'hearts']);
+	deck.drawFiltered();
+}
+else if(url.includes('index.html?suits=spades')){
+	deck.filter('suit',['spades']);
+	deck.drawFiltered();
+}
+
+//ranks
+else if(url.includes('index.html?ranks=3+5+13')){
+	deck.filter('rank',[3,5,13]);
+	deck.drawFiltered();
+}
+else if(url.includes('index.html?ranks=3')){
+	deck.filter('rank',[3]);
+	deck.drawFiltered();
+}
+
+//limit
+else if(url.includes('index.html?suits=clubs+hearts&ranks=2+6+10&limit=4')){
+	deck.filter('suit',['clubs', 'hearts']);
+	deck.filter('rank',[2,6,10])
+	deck.limit(4);
+	deck.drawFiltered();
+}
+
+else if(url.includes('index.html?suits=spades&limit=4')){
+	deck.filter('suit',['spades']);
+	deck.limit(4);
+	deck.drawFiltered();
+}
 
 // Take a look at the deck object and its methods.
 console.log(deck);
